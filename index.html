@@ -8,7 +8,8 @@
 </head>
 <body>
     <div id="app">
-        <p id="userName"></p>
+        <p id="userInfo"></p>
+        <img id="userPhoto" alt="User Photo" style="display:none; width:150px; height:150px;">
     </div>
 
     <script>
@@ -19,8 +20,20 @@
 
         // Проверяем, что данные пользователя существуют
         if (user) {
-            const userNameElement = document.getElementById('userName');
-            userNameElement.textContent = `Привет, ${user.first_name} ${user.last_name || ''}`;
+            const userInfoElement = document.getElementById('userInfo');
+            const userPhotoElement = document.getElementById('userPhoto');
+
+            // Заполняем информацию о пользователе
+            userInfoElement.textContent = `Имя: ${user.first_name}
+                                            \nФамилия: ${user.last_name || 'не указана'}
+                                            \nID: ${user.id}
+                                            \nЮзернейм: ${user.username || 'не указан'}`;
+
+            // Проверяем наличие фотографии профиля
+            if (user.photo_url) {
+                userPhotoElement.src = user.photo_url;
+                userPhotoElement.style.display = 'block';
+            }
         } else {
             console.error('Не удалось получить данные пользователя.');
         }
