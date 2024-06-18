@@ -8,7 +8,10 @@
 </head>
 <body>
     <div id="app">
-        <p id="userInfo"></p>
+        <p id="firstName"></p>
+        <p id="lastName"></p>
+        <p id="userId"></p>
+        <p id="username"></p>
         <img id="userPhoto" alt="User Photo" style="display:none; width:150px; height:150px;">
     </div>
 
@@ -20,14 +23,17 @@
 
         // Проверяем, что данные пользователя существуют
         if (user) {
-            const userInfoElement = document.getElementById('userInfo');
+            const firstNameElement = document.getElementById('firstName');
+            const lastNameElement = document.getElementById('lastName');
+            const userIdElement = document.getElementById('userId');
+            const usernameElement = document.getElementById('username');
             const userPhotoElement = document.getElementById('userPhoto');
 
             // Заполняем информацию о пользователе
-            userInfoElement.textContent = `Имя: ${user.first_name}
-                                            \nФамилия: ${user.last_name || 'не указана'}
-                                            \nID: ${user.id}
-                                            \nЮзернейм: ${user.username || 'не указан'}`;
+            firstNameElement.textContent = `Имя: ${user.first_name}`;
+            lastNameElement.textContent = `Фамилия: ${user.last_name || 'не указана'}`;
+            userIdElement.textContent = `ID: ${user.id}`;
+            usernameElement.textContent = `Юзернейм: ${user.username || 'не указан'}`;
 
             // Проверяем наличие фотографии профиля
             if (user.photo_url) {
