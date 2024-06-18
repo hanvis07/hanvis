@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Telegram Mini App</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p id="userName"></p>
+    </div>
+
+    <script>
+        window.Telegram.WebApp.ready();
+
+        // Получаем данные пользователя из Telegram Web App
+        const user = window.Telegram.WebApp.initDataUnsafe.user;
+
+        // Проверяем, что данные пользователя существуют
+        if (user) {
+            const userNameElement = document.getElementById('userName');
+            userNameElement.textContent = `Привет, ${user.first_name} ${user.last_name || ''}`;
+        } else {
+            console.error('Не удалось получить данные пользователя.');
+        }
+    </script>
+</body>
+</html>
