@@ -9,11 +9,77 @@
 </head>
 <body>
   <div id="app">
-    <p id="firstName"></p>
-    <p id="lastName"></p>
-    <p id="userId"></p>
-    <p id="username"></p>
-    <img id="userPhoto" alt="User Photo" style="width:150px; height:150px;">
+    <header class="header">
+      <div class="header__profile header-profile">
+        <div class="header-profile__icon">
+          <img src="img/header-profile__icon.png" alt="">
+        </div>
+        <span class="header-profile__name">
+          <span id="firstName">Hanvis</span>
+          <span id="lastName"></span>
+        </span>
+      </div>
+      <div class="header__balance header-balance">
+        <img src="img/header-balance__star.svg" alt="" class="header-balance__icon">
+        <span class="header-balance__amount" id="userId">100</span>
+      </div>
+    </header>
+    <main class="main">
+      <div class="main__ad main-ad">
+        <img src="img/main-ad__icon.svg" alt="">
+        <span class="main-ad__name">Смотреть! <br> 0 / 5</span>
+      </div>
+      <a href="javascript:;" class="main__play main-play">
+        <img src="img/main-play__icon.svg" alt="">
+        <span class="main-play__text">Следующее слово через 1ч 20мин</span>
+      </a>
+    </main>
+    <footer class="footer">
+      <nav class="footer__nav footer-nav">
+        <ul class="footer-nav__list">
+          <li class="footer-nav__item is-active">
+            <a href="javascript:;" class="footer-nav__link">
+              <div class="footer-nav__icon">
+                <img src="img/footer-nav__home.svg" alt="">
+              </div>
+              <span class="footer-nav__name">Главная</span>
+            </a>
+          </li>
+          <li class="footer-nav__item">
+            <a href="javascript:;" class="footer-nav__link">
+              <div class="footer-nav__icon">
+                <img src="img/footer-nav__lottery.svg" alt="">
+              </div>
+              <span class="footer-nav__name">Лотереи</span>
+            </a>
+          </li>
+          <li class="footer-nav__item">
+            <a href="javascript:;" class="footer-nav__link">
+              <div class="footer-nav__icon">
+                <img src="img/footer-nav__game.svg" alt="">
+              </div>
+              <span class="footer-nav__name">Игра</span>
+            </a>
+          </li>
+          <li class="footer-nav__item">
+            <a href="javascript:;" class="footer-nav__link">
+              <div class="footer-nav__icon">
+                <img src="img/footer-nav__tasks.svg" alt="">
+              </div>
+              <span class="footer-nav__name">Задания</span>
+            </a>
+          </li>
+          <li class="footer-nav__item">
+            <a href="javascript:;" class="footer-nav__link">
+              <div class="footer-nav__icon">
+                <img src="img/footer-nav__profile.svg" alt="">
+              </div>
+              <span class="footer-nav__name">Профиль</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </footer>
   </div>
 
   <script src="script.js"></script>
