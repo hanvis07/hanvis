@@ -1,62 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telegram Mini App</title>
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
-        body {
-            background: #fff !important;
-            color: #000;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Mini App</title>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div id="app">
-        <p id="firstName"></p>
-        <p id="lastName"></p>
-        <p id="userId"></p>
-        <p id="username"></p>
-        <img id="userPhoto" alt="User Photo" style="display:none; width:150px; height:150px;">
-    </div>
+  <div id="app">
+    <p id="firstName"></p>
+    <p id="lastName"></p>
+    <p id="userId"></p>
+    <p id="username"></p>
+    <img id="userPhoto" alt="User Photo" style="width:150px; height:150px;">
+  </div>
 
-    <script>
-        window.Telegram.WebApp.ready();
-
-        // Получаем данные пользователя из Telegram Web App
-        const user = window.Telegram.WebApp.initDataUnsafe.user;
-
-        // Проверяем, что данные пользователя существуют
-        if (user) {
-            const firstNameElement = document.getElementById('firstName');
-            const lastNameElement = document.getElementById('lastName');
-            const userIdElement = document.getElementById('userId');
-            const usernameElement = document.getElementById('username');
-            const userPhotoElement = document.getElementById('userPhoto');
-
-            // Заполняем информацию о пользователе
-            firstNameElement.textContent = `Имя: ${user.first_name}`;
-            lastNameElement.textContent = `Фамилия: ${user.last_name || 'не указана'}`;
-            userIdElement.textContent = `ID: ${user.id}`;
-            usernameElement.textContent = `Юзернейм: ${user.username || 'не указан'}`;
-
-            // Проверяем наличие фотографии профиля
-            if (user.photo_url) {
-                // Загружаем изображение, чтобы проверить его доступность
-                const img = new Image();
-                img.src = user.photo_url;
-                img.onload = function() {
-                    userPhotoElement.src = user.photo_url;
-                    userPhotoElement.style.display = 'block';
-                }
-                img.onerror = function() {
-                    console.error('Не удалось загрузить изображение пользователя.');
-                }
-            }
-        } else {
-            console.error('Не удалось получить данные пользователя.');
-        }
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
